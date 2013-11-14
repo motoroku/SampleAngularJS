@@ -1,23 +1,33 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="colorset">
 <head>
     <script src="lib/angular-1.2.0/angular.js"></script>
+    <script src="lib/angular-1.2.0/angular-route.js"></script>
     <script src="src/controller/controllers.js"></script>
+    <script src="src/app.js"></script>
     <title>Angular JS Sample</title>
 </head>
-<body ng-controller="SampleController">
+<body ng-controller="ColorController">
 
-<input type="text" ng-model="data" placeholder="名前？">
-<hr>
-{{data}}より愛をこめて
+<!--<input type="text" ng-model="data" placeholder="名前？">-->
+<!--<hr>-->
+<!--{{data}}より愛をこめて-->
 
-<div class="toolbar">
-    Search:<input ng-model="query">
-</div>
+<!--<div class="toolbar">-->
+    <!--Search:<input ng-model="query">-->
+    <!--Sort by:-->
+        <!--<select ng-model="orderProp">-->
+            <!--<option value="name">漢字順</option>-->
+            <!--<option value="kana">カナ順</option>-->
+        <!--</select>-->
+<!--</div>-->
 
-<div ng-repeat="color in colors | filter:query" class="colorblock" style="background-color:{{color.color}};">
-    <div class="colortitle">{{color.name}}</div>
-</div>
+<!--<div ng-repeat="color in colors | filter:query | orderBy:orderProp" ng-controller="ColorListItemController" class="colorblock" style="background-color:{{color.color}};">-->
+    <!--<div class="colortitle">{{color.name}}  {{color.kana}}</div>-->
+    <!--<input type="button" ng-click="increment()" value="like"/>{{color.like}}-->
+<!--</div>-->
+
+<div ng-view></div>
 
 </body>
 </html>
