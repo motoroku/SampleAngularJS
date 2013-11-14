@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <script src="lib/angular-1.2.0/angular.js"></script>
+    <title>Angular JS Sample</title>
+</head>
+<body ng-controller="SampleController">
+
+<input type="text" ng-model="data" placeholder="名前？">
+<hr>
+{{data}}より愛をこめて
+
+<div ng-repeat="color in colors" class="colorblock" style="background-color:{{color.color}};">
+    <div class="colortitle">{{color.name}}</div>
+</div>
+
+</body>
+</html>
