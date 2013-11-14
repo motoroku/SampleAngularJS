@@ -2,6 +2,7 @@
 <html ng-app>
 <head>
     <script src="lib/angular-1.2.0/angular.js"></script>
+    <script src="src/controller/controllers.js"></script>
     <title>Angular JS Sample</title>
 </head>
 <body ng-controller="SampleController">
@@ -10,7 +11,11 @@
 <hr>
 {{data}}より愛をこめて
 
-<div ng-repeat="color in colors" class="colorblock" style="background-color:{{color.color}};">
+<div class="toolbar">
+    Search:<input ng-model="query">
+</div>
+
+<div ng-repeat="color in colors | filter:query" class="colorblock" style="background-color:{{color.color}};">
     <div class="colortitle">{{color.name}}</div>
 </div>
 

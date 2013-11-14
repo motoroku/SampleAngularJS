@@ -4,4 +4,4 @@ function SampleController($scope){
         {"name":"黄金","color":"#e6b422"},
         {"name":"櫨染","color":"#d9a62e"}
     ]
-}
+};
