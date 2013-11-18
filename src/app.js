@@ -5,3 +5,6 @@ angular.module('colorset',["ngRoute"]).config(["$routeProvider", function($route
         .when("/colors/:colorId",{templateUrl:"../color-detail.html",controller:ColorDetailController})
         .otherwise({redirectTo:"/colors"});
 }]);
+
+myapp = angular.module('app',[]).config()
+.controller(myapp.ColorController,[$scope])
