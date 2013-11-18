@@ -1,4 +1,4 @@
-describe("sample", function() {
+describe("sample", function () {
     var a
     var $injector;
     var myScope;
@@ -6,20 +6,20 @@ describe("sample", function() {
     var ctrl;
     var ctrl2;
 
-    beforeEach(function() {
+    beforeEach(function () {
         a = 1;
         $injector = angular.injector();
         console.log($injector);
     });
     beforeEach(module("sampleApp"))
-    beforeEach(inject(function($controller,$rootScope){
+    beforeEach(inject(function ($controller, $rootScope) {
         myScope = $rootScope.$new();
         myScope2 = $rootScope.$new();
-        ctrl = $controller("ColorController",{$scope:myScope});
-        ctrl2 = $controller("ColorCtrl",{$scope:myScope2});
+        ctrl = $controller("ColorController", {$scope: myScope});
+        ctrl2 = $controller("ColorCtrl", {$scope: myScope2});
     }))
 
-    it("green", function() {
+    it("green", function () {
         //demonstrates use of custom matcher
         expect(ctrl.tempMessage).toBe("hello");
         expect(myScope.colors[0].name).toBe("桜色");

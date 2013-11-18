@@ -16,14 +16,15 @@
 <div class="toolbar">
     Search:<input ng-model="query">
     Sort by:
-        <select ng-model="orderProp">
-            <option value="name">漢字順</option>
-            <option value="kana">カナ順</option>
-        </select>
+    <select ng-model="orderProp">
+        <option value="name">漢字順</option>
+        <option value="kana">カナ順</option>
+    </select>
 </div>
 
-<div ng-repeat="color in colors | filter:query | orderBy:orderProp" ng-controller="ColorListItemController" class="colorblock" style="background-color:{{color.color}};">
-    <div class="colortitle">{{color.name}}  {{color.kana}}</div>
+<div ng-repeat="color in colors | filter:query | orderBy:orderProp" ng-controller="ColorListItemController"
+     class="colorblock" style="background-color:{{color.color}};">
+    <div class="colortitle">{{color.name}} {{color.kana}}</div>
     <input type="button" ng-click="increment()" value="like"/>{{color.like}}
 </div>
 

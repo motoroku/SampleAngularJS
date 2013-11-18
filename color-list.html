@@ -6,8 +6,9 @@
         <option value="kana">カナ順</option>
     </select>
 
-    <div ng-repeat="color in colors | filter:query | orderBy:orderProp" ng-controller="ColorListItemController" class="colorblock" style="background-color:{{color.color}};">
-        <div class="colortitle"><a href="#/colors/{{color.id}}"> {{color.name}}  {{color.kana}}</a></div>
+    <div ng-repeat="color in colors | filter:query | orderBy:orderProp" ng-controller="ColorListItemController"
+         class="colorblock" style="background-color:{{color.color}};">
+        <div class="colortitle"><a href="#/colors/{{color.id}}"> {{color.name}} {{color.kana}}</a></div>
         <!--<input type="button" ng-click="increment()" value="like"/>{{color.like}}-->
     </div>
 </div>
