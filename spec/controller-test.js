@@ -20,8 +20,6 @@ describe("sample", function() {
     }))
 
     it("green", function() {
-       // console.log($scope.colors);
-
         //demonstrates use of custom matcher
         expect(ctrl.tempMessage).toBe("hello");
         expect(myScope.colors[0].name).toBe("桜色");
