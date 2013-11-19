@@ -2,31 +2,52 @@
 <html ng-app>
 <head>
     <script src="lib/angular-1.2.0/angular.js"></script>
+    <script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
     <script src="lib/angular-1.2.0/angular-route.js"></script>
     <script src="src/controller/controllers.js"></script>
     <script src="src/app.js"></script>
     <title>Angular JS Sample</title>
 </head>
-<body ng-controller="ColorController">
+<body>
+<div ng-controller="ColorCtrl" id="color">
+    <input type="text" ng-model="data" placeholder="名前？">
+    <hr>
+    {{data}}より愛をこめて
 
-<input type="text" ng-model="data" placeholder="名前？">
-<hr>
-{{data}}より愛をこめて
+    <div class="toolbar">
+        Search:<input ng-model="query">
+        Sort by:
+        <select ng-model="orderProp">
+            <option value="name">漢字順</option>
+            <option value="kana">カナ順</option>
+        </select>
+    </div>
 
-<div class="toolbar">
-    Search:<input ng-model="query">
-    Sort by:
-    <select ng-model="orderProp">
-        <option value="name">漢字順</option>
-        <option value="kana">カナ順</option>
-    </select>
+    <div ng-repeat="color in colors | filter:query | orderBy:orderProp" ng-controller="ColorListItemController"
+         class="colorblock" style="background-color:{{color.color}};">
+        <div class="colortitle">{{color.name}} {{color.kana}}</div>
+        <input type="button" ng-click="increment()" value="like"/>{{color.like}}
+    </div>
 </div>
 
-<div ng-repeat="color in colors | filter:query | orderBy:orderProp" ng-controller="ColorListItemController"
-     class="colorblock" style="background-color:{{color.color}};">
-    <div class="colortitle">{{color.name}} {{color.kana}}</div>
-    <input type="button" ng-click="increment()" value="like"/>{{color.like}}
-</div>
+<div ng-controller="TempController" id="temp">
 
+    <button ng-click="click()">button</button>
+    <p>
+        {{beforeColor}}
+    </p>
+
+    <p>
+
+    <form name="formers">
+        <p>name:<input type="text" name="name" ng-model="editColor.name"></p>
+
+        <p>color:<input type="text" name="color" ng-model="editColor.color"></p>
+
+        <p><input type="submit" value="add"></p>
+    </form>
+    <pre>{{editColor|json}}</pre>
+    </p>
+</div>
 </body>
 </html>
