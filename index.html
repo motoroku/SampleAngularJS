@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="sampleApp">
 <head>
     <script src="lib/angular-1.2.0/angular.js"></script>
-    <script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
     <script src="lib/angular-1.2.0/angular-route.js"></script>
+    <script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="src/service/service.js"></script>
     <script src="src/controller/controllers.js"></script>
     <script src="src/app.js"></script>
     <title>Angular JS Sample</title>
 </head>
 <body>
-<div ng-controller="ColorCtrl" id="color">
+<div ng-controller="ColorController" id="color">
     <input type="text" ng-model="data" placeholder="名前？">
     <hr>
     {{data}}より愛をこめて
@@ -32,14 +33,15 @@
 
 <div ng-controller="TempController" id="temp">
 
-    <button ng-click="click()">button</button>
+    <button ng-click="reload()">reload</button>
+    <button ng-click="next()">next</button>
+    <p>currentIndex:{{currentPosition}}</p>
     <p>
         {{beforeColor}}
     </p>
 
     <p>
-
-    <form name="formers">
+    <form name="formers" ng-submit="submit()">
         <p>name:<input type="text" name="name" ng-model="editColor.name"></p>
 
         <p>color:<input type="text" name="color" ng-model="editColor.color"></p>
@@ -47,6 +49,10 @@
         <p><input type="submit" value="add"></p>
     </form>
     <pre>{{editColor|json}}</pre>
+    </p>
+
+    <p>
+        {{hoge}}
     </p>
 </div>
 </body>

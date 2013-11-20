@@ -1,32 +1,37 @@
 describe("sample", function () {
-    var a
     var $injector;
     var myScope;
     var myScope2;
     var ctrl;
-    var ctrl2;
     var result;
+    var service
+    var flag = false;
 
-    beforeEach(function () {
-        a = 1;
-        $injector = angular.injector();
-    });
     beforeEach(module("sampleApp"))
-    beforeEach(inject(function ($controller, $rootScope,$window) {
+    beforeEach(inject(function ($controller, $rootScope, $injector) {
         myScope = $rootScope.$new();
         myScope2 = $rootScope.$new();
-        ctrl2 = $controller("ColorCtrl", {$scope: myScope2});
-        $window:{
-            hoge = function(){
-                result = 100;
-            }
+        service = $injector.get("sampleService");
+        if (flag) {
+            ctrl = $controller("TempController", {$scope: myScope, sampleService: {
+                getColorJson: function () {
+                    result = 100;
+                }
+            }});
+        } else {
+            ctrl = $controller("TempController", {$scope: myScope, sampleService: service});
         }
     }))
 
     it("green", function () {
-        //demonstrates use of custom matcher
-        expect(myScope2.colors[0].name).toBe("桜色");
-        expect(result).toEqual(100);
+        console.log(result);
+        console.log(myScope.hoge);
+        if (flag) {
+            expect(result).toEqual(100);
+        }
+        else {
+            expect(myScope.hoge).toEqual("hoge");
+        }
     });
 
 //    it("red", function() {

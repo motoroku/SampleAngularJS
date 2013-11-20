@@ -16,7 +16,10 @@ module.exports = function(config) {
     files: [
         'lib/angular-1.2.0/angular.js',
         'lib/angular-1.2.0/angular-mocks.js',
+        'src/colors.json',
+        'src/service/*.js',
         'src/controller/*.js',
+        'src/app.js',
         'spec/*.js'
     ],
 

@@ -6,5 +6,9 @@ angular.module('colorset', ["ngRoute"]).config(["$routeProvider", function ($rou
         .otherwise({redirectTo: "/colors"});
 }]);
 
-myapp = angular.module('app', []).config()
-    .controller(myapp.ColorController, [$scope])
+angular.module("sampleApp",[])
+    .controller("ColorController",ColorController)
+    .controller("ColorListItemController",ColorListItemController)
+    .controller("ColorDetailController",ColorDetailController)
+    .controller("TempController",TempController)
+    .service("sampleService",SampleService)
