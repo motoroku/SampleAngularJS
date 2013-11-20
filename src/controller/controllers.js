@@ -1,3 +1,5 @@
+angular.module("sampleApp",[]);
+
 
 function ColorCtrl($scope, $http) {
     $scope.colors = [
@@ -9,6 +11,8 @@ function ColorCtrl($scope, $http) {
         for(var i = 0; i<data.length;i++){data[i].like=0};
        $scope.colors = data;
     });
+
+   hoge();
 };
 
 function ColorListItemController($scope){
@@ -30,5 +34,8 @@ function TempController($scope){
         $scope.editColor = angular.extend({},parentScope.colors[0]);
 
     }
+}
 
+function hoge(){
+    return "hoge";
 }
