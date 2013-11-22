@@ -33,14 +33,22 @@
 
 <div ng-controller="TempController" id="temp">
 
+    <div>
+        全ての色データ
+        <p>{{fuga}}</p>
+    </div>
+
     <button ng-click="reload()">reload</button>
     <button ng-click="next()">next</button>
     <p>currentIndex:{{currentPosition}}</p>
-    <p>
-        {{beforeColor}}
-    </p>
 
-    <p>
+    <div>
+        ロードした色データ
+        <p>
+            {{beforeColor}}
+        </p>
+    </div>
+
     <form name="formers" ng-submit="submit()">
         <p>name:<input type="text" name="name" ng-model="editColor.name"></p>
 
@@ -48,11 +56,17 @@
 
         <p><input type="submit" value="add"></p>
     </form>
-    <pre>{{editColor|json}}</pre>
+    <div>
+        編集している色データ
+        <pre>{{editColor|json}}</pre>
+    </div>
+
     </p>
 
+
+    <button ng-click="posting()">post</button>
     <p>
-        {{hoge}}
+        送信結果：{{postStatus}}
     </p>
 </div>
 </body>
