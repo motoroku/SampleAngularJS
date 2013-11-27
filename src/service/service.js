@@ -1,10 +1,10 @@
 function SampleService($http) {
     this.$http = $http;
-}
+};
 
 SampleService.prototype.getHoge = function () {
     return "hoge";
-}
+};
 
 SampleService.prototype.getColorJson = function (callback) {
     this.$http(
@@ -15,7 +15,7 @@ SampleService.prototype.getColorJson = function (callback) {
     )
         .success(callback)
         .error(callback)
-}
+};
 
 SampleService.prototype.postColor = function (data, callback) {
     this.$http(
@@ -30,4 +30,15 @@ SampleService.prototype.postColor = function (data, callback) {
         .error(callback)
 
     console.log("this_is_sending_data = " + data);
+};
+
+SampleService.prototype.postFile = function(data,callback){
+    this.$http({
+        method:"POST",
+        url:"api/file",
+        data:data,
+        headers:{"Content-Type":"multipart/form-data"}
+    })
+        .success(callback)
+        .error(callback)
 }

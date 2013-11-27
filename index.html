@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-<html ng-app="sampleApp">
+<html ng-app="sampleApp" xmlns="http://www.w3.org/1999/html">
 <head>
     <script src="lib/angular-1.2.0/angular.js"></script>
     <script src="lib/angular-1.2.0/angular-route.js"></script>
     <script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="src/test-data.js"></script>
     <script src="src/service/service.js"></script>
-    <script src="src/controller/controllers.js"></script>
+    <script src="src/directive/directive.js"></script>
+    <script src="src/controller/temp-controller.js"></script>
+    <script src="src/controller/select-controller.js"></script>
+    <script src="src/controller/color-controllers.js"></script>
     <script src="src/app.js"></script>
     <title>Angular JS Sample</title>
 </head>
 <body>
 <div ng-controller="ColorController" id="color">
-    <input type="text" ng-model="data" placeholder="名前？">
     <hr>
+    <input type="text" ng-model="data" placeholder="名前？">
     {{data}}より愛をこめて
-
+    <hr>
     <div class="toolbar">
         Search:<input ng-model="query">
         Sort by:
@@ -23,14 +27,22 @@
             <option value="kana">カナ順</option>
         </select>
     </div>
-
     <div ng-repeat="color in colors | filter:query | orderBy:orderProp" ng-controller="ColorListItemController"
          class="colorblock" style="background-color:{{color.color}};">
-        <div class="colortitle">{{color.name}} {{color.kana}}</div>
+        <div class="colortitle">{
+            {
+                color.name
+            }
+        }
+        {
+            {
+                color.kana
+            }
+        }</div>
         <input type="button" ng-click="increment()" value="like"/>{{color.like}}
     </div>
 </div>
-
+<hr>
 <div ng-controller="TempController" id="temp">
 
     <div>
@@ -61,13 +73,56 @@
         <pre>{{editColor|json}}</pre>
     </div>
 
-    </p>
-
-
     <button ng-click="posting()">post</button>
     <p>
         送信結果：{{postStatus}}
+        送信データ：{{editColor.name}}
     </p>
 </div>
+
+<hr>
+
+<div ng-controller="SelectController">
+    <select ng-model="item" ng-options="color.name for color in colorList" ng-change="getItem()"
+            ng-init="initItem()" ng-init="item=colorList[0]">
+    </select>現在選択している色：{{item}}
+
+    <form ng-submit="addColor()">
+        <input type="text" ng-model="newItem.name"><br>
+        <input type="text" ng-model="newItem.id"> <br>
+        <input type="text" ng-model="newItem.color" ng-maxLength="7">
+        <input type="submit" value="add">
+    </form>
+    現在編集している色：{{newItem}}
+    <br>
+
+    <div ng-repeat="color in colorList">
+        －－－－－－－－－－－－－－－－－－－－－－－－－－－－－<br>
+        名前：{{color.name}}<br>
+        かな：{{color.id}}<br>
+        RGB：{{color.color}}<br>
+        番号：{{color.number}}<br>
+    </div>
+
+    <hr>
+    <div>
+        <select ng-model="departmentTop" ng-options="dept.name for dept in departmentTops"
+                ng-change="changeTopDepartment()"></select>
+        <select ng-model="departmentMiddle" ng-options="dept.name for dept in departmentMiddles"
+                ng-change="changeMiddleDepartment()">
+            <option value="">---</option>
+        </select>
+        <select ng-model="departmentBottom" ng-options="dept.name for dept in departmentBottoms">
+            <option value="">---</option>
+        </select>
+    </div>
+    TOP:<pre>{{departmentTop}}</pre>
+    MIDDLE:<pre>{{departmentMiddle}}</pre>
+    BOTTOM:<pre>{{departmentBottom}}</pre>
+
+    <pre>{{departmentTops}}</pre>
+
+</div>
+
 </body>
 </html>
