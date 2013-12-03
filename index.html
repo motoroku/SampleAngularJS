@@ -10,6 +10,7 @@
     <script src="src/controller/temp-controller.js"></script>
     <script src="src/controller/select-controller.js"></script>
     <script src="src/controller/color-controllers.js"></script>
+    <script src="src/controller/check-controller.js"></script>
     <script src="src/app.js"></script>
     <title>Angular JS Sample</title>
 </head>
@@ -28,17 +29,12 @@
         </select>
     </div>
     <div ng-repeat="color in colors | filter:query | orderBy:orderProp" ng-controller="ColorListItemController"
-         class="colorblock" style="background-color:{{color.color}};">
-        <div class="colortitle">{
-            {
-                color.name
-            }
-        }
-        {
-            {
-                color.kana
-            }
-        }</div>
+         class="colorblock"
+         style="background-color:{{color.color}}">
+        <div class="colortitle">
+            色名：{{color.name}}
+            かな：{{color.kana}}
+        </div>
         <input type="button" ng-click="increment()" value="like"/>{{color.like}}
     </div>
 </div>
@@ -116,12 +112,20 @@
             <option value="">---</option>
         </select>
     </div>
-    TOP:<pre>{{departmentTop}}</pre>
-    MIDDLE:<pre>{{departmentMiddle}}</pre>
-    BOTTOM:<pre>{{departmentBottom}}</pre>
+    TOP:
+    <pre>{{departmentTop}}</pre>
+    MIDDLE:
+    <pre>{{departmentMiddle}}</pre>
+    BOTTOM:
+    <pre>{{departmentBottom}}</pre>
 
     <pre>{{departmentTops}}</pre>
 
+</div>
+
+<div ng-controller="CheckController">
+    message:{{fuga}}</br>
+    object:{{hoge}}
 </div>
 
 </body>

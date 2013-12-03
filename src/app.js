@@ -6,14 +6,16 @@ angular.module('colorset', ["ngRoute"]).config(["$routeProvider", function ($rou
         .otherwise({redirectTo: "/colors"});
 }]);
 
-angular.module("sampleApp",["ngRoute"])
-//    .config(["$routeProvider",function($routeProvider){
-//        $routeProvider
-//            .when("/colors",{templateUrl:"/template/color-list.html",controller:ColorController});
+angular.module("sampleApp", ["ngRoute"])
+//    .config(["$routeProvider", function ($routeProvider) {
+//        $routeProvider.when("/colors", {templateUrl: "/templates/color-list.html", controller: ColorController});
+//        $routeProvider.when("/colorDetail", {templateUrl: "/templates/color-detail.html", controller: ColorDetailController});
+//        $locationProvider.html5Mode(true);
 //    }])
-    .controller("ColorController",ColorController)
-    .controller("ColorListItemController",ColorListItemController)
-    .controller("ColorDetailController",ColorDetailController)
-    .controller("TempController",TempController)
-    .controller("SelectController",SelectController)
-    .service("sampleService",SampleService)
+    .controller("ColorController", ColorController)
+    .controller("ColorListItemController", ColorListItemController)
+    .controller("ColorDetailController", ColorDetailController)
+    .controller("TempController", TempController)
+    .controller("SelectController", SelectController)
+    .controller("CheckController",CheckController)
+    .service("sampleService", SampleService);
