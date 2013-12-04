@@ -84,7 +84,7 @@
 
 <div ng-controller="SelectController">
     <select ng-model="item" ng-options="color.name for color in colorList" ng-change="getItem()"
-            ng-init="initItem()" ng-init="item=colorList[0]">
+            ng-init="initItem()">
     </select>現在選択している色：{{item}}
 
     <form ng-submit="addColor()">
@@ -116,12 +116,21 @@
             <option value="">---</option>
         </select>
     </div>
-    TOP:<pre>{{departmentTop}}</pre>
-    MIDDLE:<pre>{{departmentMiddle}}</pre>
-    BOTTOM:<pre>{{departmentBottom}}</pre>
+    TOP:
+    <pre>{{departmentTop}}</pre>
+    MIDDLE:
+    <pre>{{departmentMiddle}}</pre>
+    BOTTOM:
+    <pre>{{departmentBottom}}</pre>
 
     <pre>{{departmentTops}}</pre>
 
+</div>
+
+<hr>
+
+<div ng-controller="ColorController">
+    {{colors}}
 </div>
 
 </body>
