@@ -80,7 +80,7 @@
 
 <div ng-controller="SelectController">
     <select ng-model="item" ng-options="color.name for color in colorList" ng-change="getItem()"
-            ng-init="initItem()" ng-init="item=colorList[0]">
+            ng-init="initItem()">
     </select>現在選択している色：{{item}}
 
     <form ng-submit="addColor()">
@@ -123,6 +123,11 @@
 
 </div>
 
+<hr>
+
+<div ng-controller="ColorController">
+    {{colors}}
+</div>
 <div ng-controller="CheckController">
     message:{{fuga}}</br>
     object:{{hoge}}

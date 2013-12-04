@@ -1,7 +1,7 @@
 function SelectController($scope) {
     $scope.colorList = colorList;
     $scope.item = item;
-    $scope.num = 0 + item.number;
+    $scope.num = $scope.item.number;
     $scope.departmentList = department;
     $scope.departmentTops = (function(){
         var list = [];
@@ -28,11 +28,12 @@ function SelectController($scope) {
     }
 
     $scope.initItem = function(){
-        $scope.item = $scope.colorList[2];
+        $scope.item = $scope.colorList[0];
     }
 
     $scope.changeTopDepartment = function(){
         $scope.departmentMiddles = []
+        $scope.departmentBottoms = []
         var j = 0;
         for(var i = 0;i<$scope.departmentList.length;i++){
             if($scope.departmentTop.id==$scope.departmentList[i].upperId){
@@ -51,5 +52,9 @@ function SelectController($scope) {
                 j++
             }
         }
+    }
+
+    $scope.chageBottomDepartment = function(){
+
     }
 }

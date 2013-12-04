@@ -1,6 +1,6 @@
 (function (global) {
     var colorList = [
-        {},
+
         {
             "id": "sakurairo",
             "name": "桜色",
